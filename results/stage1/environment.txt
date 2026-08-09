@@ -1,0 +1,17 @@
+=== Environment ===
+Python        : 3.13.11 | packaged by Anaconda, Inc. | (main, Dec 10 2025, 21:21:08) [Clang 20.1.8 ]
+Platform      : macOS-26.5.1-arm64-arm-64bit-Mach-O
+Machine       : arm64
+numpy          : 1.26.4
+scipy          : 1.17.1
+pandas         : 2.3.3
+matplotlib     : 3.10.9
+seaborn        : 0.13.2
+scikit-learn   : 1.8.0
+Pillow         : 12.2.0
+tqdm           : 4.67.1
+h5py           : 3.16.0
+torch          : 2.11.0
+torchvision    : 0.26.0
+GPU           : nvidia-smi not available
+CUDA available: False

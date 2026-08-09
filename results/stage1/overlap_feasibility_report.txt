@@ -1,0 +1,137 @@
+======================================================================
+OVERLAP FEASIBILITY REPORT
+Fixed test fold: Fold 5
+======================================================================
+
+  Fold 5 (test fold)  : 643 images, 47 patients
+  Folds 1-4 (train pool): 2421 images, 186 patients
+
+  Test patients (Fold 5): 47
+
+======================================================================
+IMPORTANT DESIGN NOTE
+======================================================================
+
+The official Cheng folds are patient-disjoint: every patient's images are
+entirely within a single fold. Therefore, Fold 5 test patients have ZERO images
+in Folds 1-4.
+
+For the three-condition overlap experiment (Stage 2), we will construct
+CUSTOM training splits rather than using the official folds directly:
+
+  TEST SET (fixed):
+    For each Fold 5 patient, reserve a fixed subset of their images as
+    test images. These are NEVER used for training in any condition.
+
+  CONDITION A (0% overlap):
+    Training set contains images ONLY from patients in Folds 1-4.
+    No test patient contributes any image to training.
+
+  CONDITION B (~50% overlap):
+    ~50% of eligible test patients contribute their non-test images to training.
+    The remaining eligible test patients are excluded from training.
+
+  CONDITION C (near-max overlap):
+    Almost all eligible test patients contribute their non-test images to training.
+
+  ELIGIBILITY:
+    A Fold 5 patient is eligible for overlap if they have >= 2 images
+    (so at least 1 test image can be reserved AND at least 1 image can
+    be added to training without leaking test images).
+
+--- Per-Test-Patient Analysis ---
+
+  Total Fold-5 test patients               : 47
+  Patients with >1 image (total)            : 46
+  Patients with exactly 1 image             : 1
+    (single-image patients CANNOT contribute to overlap)
+  Eligible overlap patients (>= 2 images)  : 46
+  Total potential overlap images            : 596
+    (= sum of (total_images - 1) for eligible patients)
+
+  Eligible patients by tumor class:
+    Glioma         :  18 patients,  269 potential overlap images
+    Meningioma     :  15 patients,  150 potential overlap images
+    Pituitary      :  13 patients,  177 potential overlap images
+
+--- Training Pool Definitions ---
+
+  Base training pool (Folds 1-4, Condition A): 2421 images
+  These images come from 186 non-test patients.
+  No test patient has images in this pool.
+
+  Potential overlap images (from eligible test patients):
+    Total: 596
+    These are (total_images - 1) per eligible patient,
+    i.e., all images except the 1 held-out test image.
+
+--- Achievable Overlap Percentages ---
+
+  Condition A (0% overlap):
+    Overlapping patients: 0 / 46
+    Achieved overlap    : 0.0%
+    Training pool size  : 2421 (Folds 1-4 only)
+    Feasible            : YES
+
+  Condition B (~50% overlap):
+    Overlapping patients: 23 / 46
+    Achieved overlap    : 50.0%
+    Overlap images added: 334
+    Training pool size  : 2755
+    Can sample 2421 from 2755? YES -> FEASIBLE
+
+  Condition C (near-max / 100% overlap):
+    Overlapping patients: 46 / 46
+    Achieved overlap    : 100.0%
+    Overlap images added: 596
+    Training pool size  : 3017
+    Can sample 2421 from 3017? YES -> FEASIBLE
+
+--- Class Balance of Training Pool ---
+
+  Base training pool (Folds 1-4) class distribution:
+    Label 1 (Meningioma): 542 images (22.4%)
+    Label 2 (Glioma): 1139 images (47.0%)
+    Label 3 (Pituitary): 740 images (30.6%)
+
+--- Summary Table ---
+
+       condition  target_overlap_pct  achieved_overlap_pct  n_eligible_patients  n_overlapping_patients  n_overlap_images_added  base_training_pool  total_training_pool  feasible_with_fixed_train_size
+  A (0% overlap)                 0.0                   0.0                   46                       0                       0                2421                 2421                            True
+B (~50% overlap)                50.0                  50.0                   46                      23                     334                2421                 2755                            True
+C (100% overlap)               100.0                 100.0                   46                      46                     596                2421                 3017                            True
+
+--- Feasibility Verdict ---
+
+  A (0% overlap): achieved=0.0%  -> FEASIBLE
+  B (~50% overlap): achieved=50.0%  -> FEASIBLE
+  C (100% overlap): achieved=100.0%  -> FEASIBLE
+
+CONCLUSION:
+  All three conditions are feasible with this dataset.
+
+  For the Stage 2 experiment:
+  - Use exactly 1 image per Fold 5 patient as the held-out test image.
+  - Test set size:  47 images  (47 patients).
+  - Base training pool (non-test patients): 2421 images.
+
+  Condition A: train on 2421 images from Folds 1-4 only.
+  Condition B: train on 2421 images sampled from (Folds 1-4 +
+               334 overlap images from 23 test patients).
+  Condition C: train on 2421 images sampled from (Folds 1-4 +
+               596 overlap images from 46 test patients).
+
+  Exact achieved overlap percentages (based on actual data):
+    Condition A: 0.0%
+    Condition B: 50.0%  (23/46 eligible patients)
+    Condition C: 100.0%  (46/46 eligible patients)
+
+  IMPORTANT: In all conditions, the EXACT held-out test image(s) per patient
+  are never placed in training. Only the remaining images of a test patient
+  can appear in training (Conditions B and C).
+
+======================================================================
+Script 06 completed successfully.
+  overlap_feasibility_report.csv  -> /Users/sameekshasharma/Desktop/brain-tumor/brain_tumor_patient_overlap/tables/stage1/overlap_feasibility_report.csv
+  overlap_feasibility_report.txt  -> /Users/sameekshasharma/Desktop/brain-tumor/brain_tumor_patient_overlap/results/stage1/overlap_feasibility_report.txt
+======================================================================

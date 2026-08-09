@@ -1,0 +1,53 @@
+STAGE 3 FINAL MANIFEST GATE REPORT
+==================================
+
+--- OUTER FOLD 1 ---
+Identical test manifests: [OK]
+Identical val manifests: [OK]
+Identical N_train: [OK]
+Identical class counts: [OK]
+[OK] Condition A passed all patient/image level strict gating rules.
+[OK] Condition B passed all patient/image level strict gating rules.
+[OK] Condition C passed all patient/image level strict gating rules.
+
+--- OUTER FOLD 2 ---
+Identical test manifests: [OK]
+Identical val manifests: [OK]
+Identical N_train: [OK]
+Identical class counts: [OK]
+[OK] Condition A passed all patient/image level strict gating rules.
+[OK] Condition B passed all patient/image level strict gating rules.
+[OK] Condition C passed all patient/image level strict gating rules.
+
+--- OUTER FOLD 3 ---
+Identical test manifests: [OK]
+Identical val manifests: [OK]
+Identical N_train: [OK]
+Identical class counts: [OK]
+[OK] Condition A passed all patient/image level strict gating rules.
+[OK] Condition B passed all patient/image level strict gating rules.
+[OK] Condition C passed all patient/image level strict gating rules.
+
+--- OUTER FOLD 4 ---
+Identical test manifests: [OK]
+Identical val manifests: [OK]
+Identical N_train: [OK]
+Identical class counts: [OK]
+[OK] Condition A passed all patient/image level strict gating rules.
+[OK] Condition B passed all patient/image level strict gating rules.
+[OK] Condition C passed all patient/image level strict gating rules.
+
+--- OUTER FOLD 5 ---
+Identical test manifests: [OK]
+Identical val manifests: [OK]
+Identical N_train: [OK]
+Identical class counts: [OK]
+[OK] Condition A passed all patient/image level strict gating rules.
+[OK] Condition B passed all patient/image level strict gating rules.
+[OK] Condition C passed all patient/image level strict gating rules.
+
+==================================
+FINAL MANIFEST GATE: PASSED
+NO MODEL TRAINING PERFORMED
+READY FOR PHASES 7-11
+==================================

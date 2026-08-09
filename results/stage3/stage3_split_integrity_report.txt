@@ -1,0 +1,46 @@
+STAGE 3 SPLIT INTEGRITY REPORT
+==============================
+
+--- OUTER FOLD 1 ---
+[OK] A/B/C test sets identical
+[OK] A/B/C val sets identical
+[OK] A/B/C train sizes identical (1996)
+[OK] Cond A has 0% test patient overlap
+[OK] Cond B has exactly 22 test patients in training (~50%)
+[OK] Cond C has exactly 43 test patients in training (100% eligible)
+
+--- OUTER FOLD 2 ---
+[OK] A/B/C test sets identical
+[OK] A/B/C val sets identical
+[OK] A/B/C train sizes identical (1898)
+[OK] Cond A has 0% test patient overlap
+[OK] Cond B has exactly 22 test patients in training (~50%)
+[OK] Cond C has exactly 45 test patients in training (100% eligible)
+
+--- OUTER FOLD 3 ---
+[OK] A/B/C test sets identical
+[OK] A/B/C val sets identical
+[OK] A/B/C train sizes identical (1981)
+[OK] Cond A has 0% test patient overlap
+[OK] Cond B has exactly 23 test patients in training (~50%)
+[OK] Cond C has exactly 46 test patients in training (100% eligible)
+
+--- OUTER FOLD 4 ---
+[OK] A/B/C test sets identical
+[OK] A/B/C val sets identical
+[OK] A/B/C train sizes identical (2009)
+[OK] Cond A has 0% test patient overlap
+[OK] Cond B has exactly 23 test patients in training (~50%)
+[OK] Cond C has exactly 46 test patients in training (100% eligible)
+
+--- OUTER FOLD 5 ---
+[OK] A/B/C test sets identical
+[OK] A/B/C val sets identical
+[OK] A/B/C train sizes identical (1918)
+[OK] Cond A has 0% test patient overlap
+[OK] Cond B has exactly 23 test patients in training (~50%)
+[OK] Cond C has exactly 46 test patients in training (100% eligible)
+
+==============================
+ALL INTEGRITY CHECKS PASSED ✅
+==============================

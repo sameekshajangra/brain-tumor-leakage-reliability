@@ -1,0 +1,4 @@
+condition,total_train,n_meningioma,n_glioma,n_pituitary,pct_meningioma,pct_glioma,pct_pituitary
+A,1956,457,916,583,23.36,46.83,29.81
+B,1956,457,916,583,23.36,46.83,29.81
+C,1956,457,916,583,23.36,46.83,29.81

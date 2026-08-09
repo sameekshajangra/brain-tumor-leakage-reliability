@@ -1,0 +1,5 @@
+zip_filename,total_entries,mat_count,first_mat,last_mat,duplicate_filenames_found
+brainTumorDataPublic_1766.zip,766,766,1.mat,99.mat,False
+brainTumorDataPublic_7671532.zip,766,766,1000.mat,999.mat,False
+brainTumorDataPublic_15332298.zip,766,766,1533.mat,2298.mat,False
+brainTumorDataPublic_22993064.zip,766,766,2299.mat,3064.mat,False

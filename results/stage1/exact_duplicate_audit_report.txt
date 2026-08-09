@@ -1,0 +1,24 @@
+======================================================================
+EXACT PIXEL DUPLICATE AUDIT
+======================================================================
+
+Computing SHA-256 hashes for 3064 images ...
+
+Analyzing duplicates ...
+  Total images hashed          : 3064
+  Unique hashes                : 3064
+  Duplicate groups (exact)     : 0
+  Images in duplicate groups   : 0
+
+--- Duplicate Group Details ---
+
+  Intra-patient duplicate groups : 0
+  Inter-patient duplicate groups : 0
+
+[OK] No exact pixel duplicates found.
+
+======================================================================
+Script 05 completed successfully.
+  exact_duplicate_audit.csv       -> /Users/sameekshasharma/Desktop/brain-tumor/brain_tumor_patient_overlap/tables/stage1/exact_duplicate_audit.csv
+  exact_duplicate_audit_report.txt-> /Users/sameekshasharma/Desktop/brain-tumor/brain_tumor_patient_overlap/results/stage1/exact_duplicate_audit_report.txt
+======================================================================

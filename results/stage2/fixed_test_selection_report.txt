@@ -1,0 +1,28 @@
+======================================================================
+FIXED TEST IMAGE SELECTION
+Test fold: 5
+Rule: minimum image_id per Fold-5 patient
+======================================================================
+
+Fold-5 patients: 47
+
+Fixed test images selected: 47
+  Eligible overlap patients (>= 2 images): 46
+  Single-image patients (not eligible):    1
+  Single-image PID(s): ['53669']
+
+Class distribution of test images:
+  Label 1 (Meningioma): 16 test images
+  Label 2 (Glioma): 18 test images
+  Label 3 (Pituitary): 13 test images
+
+Test image IDs (first 10):
+  [1, 20, 722, 1487, 28, 1310, 1323, 36, 1369, 58]
+
+[OK] All test image IDs are unique.
+
+======================================================================
+Script 07 completed successfully.
+  fixed_test_images.csv           -> /Users/sameekshasharma/Desktop/brain-tumor/brain_tumor_patient_overlap/tables/stage2/fixed_test_images.csv
+  fixed_test_selection_report.txt -> /Users/sameekshasharma/Desktop/brain-tumor/brain_tumor_patient_overlap/results/stage2/fixed_test_selection_report.txt
+======================================================================

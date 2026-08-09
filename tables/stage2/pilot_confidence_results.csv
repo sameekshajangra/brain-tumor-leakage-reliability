@@ -1,0 +1,4 @@
+condition,mean_confidence,median_confidence,mean_confidence_correct,mean_confidence_incorrect,confidence_gap,n_hi90,n_hi90_incorrect,hcer_90,n_hi95,n_hi95_incorrect,hcer_95
+A,0.9571,0.9977,0.9559,0.9697,-0.0138,42,3,0.0714,38,3,0.0789
+B,0.9384,0.9974,0.9686,0.7322,0.2364,38,1,0.0263,37,1,0.027
+C,0.9644,0.9989,0.9666,0.94,0.0267,41,3,0.0732,37,2,0.0541

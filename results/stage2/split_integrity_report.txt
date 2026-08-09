@@ -1,0 +1,74 @@
+======================================================================
+STAGE 2 — SPLIT INTEGRITY VERIFICATION
+======================================================================
+
+[CHECK 1] Test sets identical across A, B, C
+  [OK]   All test sets identical: 47 images
+
+[CHECK 2] No test image in training
+  [OK]   Condition A: 0 test images in training
+  [OK]   Condition B: 0 test images in training
+  [OK]   Condition C: 0 test images in training
+
+[CHECK 3] No test image in validation
+  [OK]   Condition A: 0 test images in validation
+  [OK]   Condition B: 0 test images in validation
+  [OK]   Condition C: 0 test images in validation
+
+[CHECK 4] Training image count identical across A, B, C
+  [OK]   All training sizes = 1956
+
+[CHECK 5] Test image count identical across A, B, C
+  [OK]   All test sizes = 47
+
+[CHECK 6] Train/val/test mutually exclusive within each condition
+  [OK]   Condition A: train/val/test fully disjoint
+  [OK]   Condition B: train/val/test fully disjoint
+  [OK]   Condition C: train/val/test fully disjoint
+
+[CHECK 7] No duplicate image IDs within any split
+  [OK]   A_train: no duplicates (1956 images, 1956 unique)
+  [OK]   A_val: no duplicates (465 images, 465 unique)
+  [OK]   A_test: no duplicates (47 images, 47 unique)
+  [OK]   B_train: no duplicates (1956 images, 1956 unique)
+  [OK]   B_val: no duplicates (465 images, 465 unique)
+  [OK]   B_test: no duplicates (47 images, 47 unique)
+  [OK]   C_train: no duplicates (1956 images, 1956 unique)
+  [OK]   C_val: no duplicates (465 images, 465 unique)
+  [OK]   C_test: no duplicates (47 images, 47 unique)
+
+[CHECK 8] Required overlap images present in B and C training
+  [OK]   Condition B: all 291 required overlap images present in training
+  [OK]   Condition C: all 596 required overlap images present in training
+
+[CHECK 9] Patient overlap counts match intended conditions
+  [OK]   Condition A: 0/46 overlap patients = 0.0%
+  [OK]   Condition B: 23/46 overlap patients = 50.0%
+  [OK]   Condition C: 46/46 overlap patients = 100.0%
+
+[CHECK 10] Class distributions (training)
+condition  total_train  n_meningioma  n_glioma  n_pituitary  pct_meningioma  pct_glioma  pct_pituitary
+        A         1956           457       916          583           23.36       46.83          29.81
+        B         1956           457       916          583           23.36       46.83          29.81
+        C         1956           457       916          583           23.36       46.83          29.81
+  [OK]   Condition B meningioma: diff=0.00pp (within 2pp threshold)
+  [OK]   Condition B glioma: diff=0.00pp (within 2pp threshold)
+  [OK]   Condition B pituitary: diff=0.00pp (within 2pp threshold)
+  [OK]   Condition C meningioma: diff=0.00pp (within 2pp threshold)
+  [OK]   Condition C glioma: diff=0.00pp (within 2pp threshold)
+  [OK]   Condition C pituitary: diff=0.00pp (within 2pp threshold)
+
+[CHECK 11] All image files exist on disk (sample: first 50 unique)
+  [OK]   All sampled 50 image files exist on disk
+
+[CHECK 12] No Fold-5 patient in validation
+  [OK]   Condition A: no Fold-5 patients in validation
+  [OK]   Condition B: no Fold-5 patients in validation
+  [OK]   Condition C: no Fold-5 patients in validation
+
+[CHECK 13] Validation patients identical across A, B, C
+  [OK]   Val patient sets identical across A, B, C (38 patients)
+
+======================================================================
+RESULT: ALL 13 CHECKS PASSED — SAFE TO PROCEED TO TRAINING
+======================================================================

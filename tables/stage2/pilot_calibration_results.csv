@@ -1,0 +1,4 @@
+condition,overlap_percentage,ece,brier_score,ece_bins,ece_scheme,n_test_images
+A,0.0,0.104151,0.183657,15,equal_width,47
+B,50.0,0.079637,0.168243,15,equal_width,47
+C,100.0,0.085838,0.163669,15,equal_width,47

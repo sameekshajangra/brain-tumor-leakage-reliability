@@ -1,0 +1,41 @@
+======================================================================
+SMOKE TEST — 2-epoch Condition A pipeline verification
+======================================================================
+
+[1] Loading Condition A splits ...
+    Train: 1956 images
+    Val  : 465 images
+    Using subset: train=64, val=32
+
+[2] Building DataLoaders ...
+    First batch shape: torch.Size([4, 3, 224, 224])  (expected [B,3,224,224])
+    Label range: 0..2
+    Image dtype: torch.float32
+    [OK] Data loading and preprocessing
+
+[3] Building EfficientNet-B0 ...
+    Device: mps
+    Forward pass output shape: torch.Size([4, 3])  (expected [B, 3])
+    Probability sums: min=1.000000, max=1.000000
+    [OK] Model architecture, forward pass, and probability output
+
+[4] Running 2-epoch training loop ...
+    Epoch 1: train_loss=1.0405, val_loss=1.0160, time=15.9s
+    Epoch 2: train_loss=0.8504, val_loss=0.9960, time=2.4s
+    [OK] Training loop (2 epochs): forward pass, loss, backprop all verified
+
+[5] Testing checkpoint save ...
+    Saved to: /Users/sameekshasharma/Desktop/brain-tumor/brain_tumor_patient_overlap/results/stage2/smoke_test_checkpoint.pt
+    [OK] Checkpoint saving
+
+[6] Verifying probability outputs on val set ...
+    Prob shape: (32, 3)
+    Sum range: 1.000000..1.000000
+    [OK] All probability outputs sum to 1 (atol=1e-4)
+
+    Smoke test checkpoint deleted (must not be used in analysis)
+
+======================================================================
+SMOKE TEST PASSED — All 6 checks OK
+Safe to proceed to full training (script 10).
+======================================================================

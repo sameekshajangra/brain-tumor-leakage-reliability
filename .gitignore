@@ -1,0 +1,28 @@
+# Raw datasets
+data/raw/
+*.mat
+*.zip
+
+# Model checkpoints
+*.pt
+*.pth
+checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# OS/editor files
+.DS_Store
+.vscode/
+.idea/
+
+# Large temporary/generated files
+*.tmp
+*.log

@@ -1,0 +1,14 @@
+STAGE 3 PREFLIGHT AUDIT REPORT
+==============================
+Total Images: 3064 (Expected: 3064)
+Unique PIDs: 233 (Expected: 233)
+Labels: All in {1, 2, 3}
+PID multiple folds: 0
+
+FOLD DISTRIBUTIONS:
+   fold  patients  images  mean_img_per_patient  median_img_per_patient  min_img  max_img  patients_exactly_1_img  patients_ge_2_img  patients_ge_5_img  patients_ge_10_img
+0     1        45     542             12.044444                    12.0        1       29                       2                 43                 37                  27
+1     2        46     679             14.760870                    14.5        1       38                       1                 45                 38                  33
+2     3        48     572             11.916667                    12.0        1       26                       2                 46                 36                  29
+3     4        47     628             13.361702                    12.0        1       37                       1                 46                 40                  30
+4     5        47     643             13.680851                    14.0        1       28                       1                 46                 42                  35

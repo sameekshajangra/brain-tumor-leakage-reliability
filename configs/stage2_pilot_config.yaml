@@ -1,0 +1,106 @@
+# configs/stage2_pilot_config.yaml
+# ==================================
+# Complete configuration for Stage 2 — Fold-5 pilot experiment
+# All three conditions (A, B, C) use identical settings.
+# NEVER change these after seeing results.
+
+experiment:
+  name: "brain_tumor_patient_overlap_pilot"
+  stage: 2
+  fold: 5
+  random_seed: 42
+
+dataset:
+  raw_dir: "../data/raw"
+  metadata_csv: "tables/stage1/metadata.csv"
+  test_fold: 5
+  class_names: {1: "Meningioma", 2: "Glioma", 3: "Pituitary"}
+  num_classes: 3
+
+# ---- Fixed test selection ----
+# For each Fold-5 patient: select the image with the MINIMUM numeric image_id.
+# This rule is deterministic and applied once before any training.
+test_selection:
+  rule: "minimum_image_id_per_patient"
+  fixed_test_csv: "tables/stage2/fixed_test_images.csv"
+
+# ---- Split construction ----
+splits:
+  output_dir: "results/stage2/splits"
+  val_fraction: 0.20           # 20% patient-level split from Folds 1-4
+  val_stratify: true
+  val_seed: 42
+  overlap_B_seed: 42           # seed for selecting 23/46 B patients
+  overlap_B_target_fraction: 0.50   # ~50% of eligible patients
+
+# ---- Image preprocessing ----
+# Rationale: MRI images are int16 with widely varying intensity windows
+# (observed range 0..10710 in sample). Per-image min-max normalization
+# to [0, 1] is the standard practice for MRI with heterogeneous acquisition
+# parameters. After normalization, the image is replicated to 3 channels
+# and ImageNet normalization is applied for compatibility with pretrained weights.
+preprocessing:
+  image_size: 224
+  dtype_original: "int16"
+  intensity_min_observed: 0
+  intensity_max_observed_sample: 10710
+  normalization_method: "per_image_minmax_then_imagenet"
+  imagenet_mean: [0.485, 0.456, 0.406]
+  imagenet_std: [0.229, 0.224, 0.225]
+  grayscale_to_rgb: "repeat_channel_3x"
+
+# ---- Training augmentation (TRAINING ONLY) ----
+# No ColorJitter — identical across A, B, C.
+# No augmentation applied to validation or test images.
+augmentation:
+  train:
+    random_horizontal_flip: true
+    random_rotation_degrees: 15
+  val_test:
+    none: true
+
+# ---- Model ----
+model:
+  architecture: "efficientnet_b0"
+  pretrained: "IMAGENET1K_V1"
+  output_classes: 3
+  final_layer: "classifier[-1]"  # replace Linear(1280, 1000) with Linear(1280, 3)
+
+# ---- Optimizer ----
+optimizer:
+  name: "AdamW"
+  lr: 1.0e-4
+  weight_decay: 1.0e-4
+
+# ---- Scheduler ----
+scheduler:
+  name: "ReduceLROnPlateau"
+  mode: "min"
+  factor: 0.5
+  patience: 5
+  min_lr: 1.0e-7
+
+# ---- Training loop ----
+training:
+  batch_size: 16
+  max_epochs: 50
+  early_stopping_patience: 10
+  early_stopping_monitor: "val_loss"
+  save_every_epoch: true   # save checkpoint + log every epoch for resumability
+  checkpoint_dir: "results/stage2/checkpoints"
+
+# ---- Calibration ----
+calibration:
+  ece_bins: 15
+  ece_scheme: "equal_width"
+  brier_score_type: "multiclass"
+
+# ---- Output paths ----
+output:
+  tables: "tables/stage2"
+  figures: "figures/stage2"
+  results: "results/stage2"
+  predictions_A: "results/stage2/predictions_condition_A.csv"
+  predictions_B: "results/stage2/predictions_condition_B.csv"
+  predictions_C: "results/stage2/predictions_condition_C.csv"
+  pilot_report: "results/stage2/pilot_report.md"

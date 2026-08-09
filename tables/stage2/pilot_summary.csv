@@ -1,0 +1,4 @@
+condition,overlap_percentage,overlapping_patients,train_images,test_images,accuracy,macro_f1,balanced_accuracy,mean_confidence,hcer_90,hcer_95,ece,brier_score
+A,0.0,0,1956,47,0.9149,0.9125,0.919,0.9571,0.0714,0.0789,0.104151,0.183657
+B,50.0,23,1956,47,0.8723,0.8717,0.8773,0.9384,0.0263,0.027,0.079637,0.168243
+C,100.0,46,1956,47,0.9149,0.911,0.9167,0.9644,0.0732,0.0541,0.085838,0.163669

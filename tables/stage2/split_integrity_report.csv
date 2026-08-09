@@ -1,0 +1,4 @@
+condition,train_images,val_images,test_images,train_patients,val_patients,test_patients,overlap_patients,n_eligible_patients,overlap_percentage,overlap_images_in_train,exact_image_overlap_count,test_identical_to_A
+A,1956,465,47,148,38,47,0,46,0.0,0,0,True
+B,1956,465,47,169,38,47,23,46,50.0,291,0,True
+C,1956,465,47,191,38,47,46,46,100.0,596,0,True

@@ -1,0 +1,4 @@
+condition,overlap_percentage,overlapping_patients,overlapping_train_images,train_images,test_images,accuracy,macro_precision,macro_recall,macro_f1,balanced_accuracy,precision_meningioma,precision_glioma,precision_pituitary,recall_meningioma,recall_glioma,recall_pituitary,f1_meningioma,f1_glioma,f1_pituitary
+A,0.0,0,0,1956,47,0.9149,0.919,0.919,0.9125,0.919,1.0,0.9444,0.8125,0.8125,0.9444,1.0,0.8966,0.9444,0.8966
+B,50.0,23,291,1956,47,0.8723,0.8921,0.8773,0.8717,0.8773,1.0,0.8095,0.8667,0.6875,0.9444,1.0,0.8148,0.8718,0.9286
+C,100.0,46,596,1956,47,0.9149,0.9222,0.9167,0.911,0.9167,1.0,0.9,0.8667,0.75,1.0,1.0,0.8571,0.9474,0.9286

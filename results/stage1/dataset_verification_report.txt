@@ -1,0 +1,54 @@
+======================================================================
+DATASET FOLD VERIFICATION REPORT
+======================================================================
+
+Total records loaded: 3064
+Columns: ['image_id', 'filename', 'PID', 'label', 'class_name', 'height', 'width', 'fold', 'file_valid', 'has_nan', 'has_inf', 'image_empty', 'image_dtype']
+
+--- Fold Coverage ---
+[OK] All 3064 images have a fold assignment.
+Fold values present: [1, 2, 3, 4, 5]
+[OK] Exactly 5 folds present.
+[OK] Every image_id appears exactly once.
+
+--- Re-confirming cvind mapping ---
+[OK] All fold assignments independently re-confirmed against cvind.mat.
+
+--- Per-Fold Statistics ---
+
+  Fold   Images   Patients    Meningioma   Glioma   Pituitary
+-----------------------------------------------------------------
+     1      542         45           112      245         185
+     2      679         46           167      338         174
+     3      572         48           139      231         202
+     4      628         47           124      325         179
+     5      643         47           166      287         190
+
+--- Patient-Disjointness Check (all 10 fold pairs) ---
+
+  Fold 1 vs Fold 2: 0 overlapping PID(s)  [OK]
+  Fold 1 vs Fold 3: 0 overlapping PID(s)  [OK]
+  Fold 1 vs Fold 4: 0 overlapping PID(s)  [OK]
+  Fold 1 vs Fold 5: 0 overlapping PID(s)  [OK]
+  Fold 2 vs Fold 3: 0 overlapping PID(s)  [OK]
+  Fold 2 vs Fold 4: 0 overlapping PID(s)  [OK]
+  Fold 2 vs Fold 5: 0 overlapping PID(s)  [OK]
+  Fold 3 vs Fold 4: 0 overlapping PID(s)  [OK]
+  Fold 3 vs Fold 5: 0 overlapping PID(s)  [OK]
+  Fold 4 vs Fold 5: 0 overlapping PID(s)  [OK]
+
+[OK] All official folds are patient-disjoint.
+
+--- Global Dataset Summary ---
+  Total images   : 3064
+  Total patients : 233
+  Meningioma     : 708 images
+  Glioma         : 1426 images
+  Pituitary      : 930 images
+
+======================================================================
+Script 03 completed successfully.
+  fold_summary.csv                 -> /Users/sameekshasharma/Desktop/brain-tumor/brain_tumor_patient_overlap/tables/stage1/fold_summary.csv
+  fold_patient_overlap_report.csv  -> /Users/sameekshasharma/Desktop/brain-tumor/brain_tumor_patient_overlap/tables/stage1/fold_patient_overlap_report.csv
+  dataset_verification_report.txt  -> /Users/sameekshasharma/Desktop/brain-tumor/brain_tumor_patient_overlap/results/stage1/dataset_verification_report.txt
+======================================================================

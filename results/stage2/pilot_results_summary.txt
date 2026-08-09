@@ -1,0 +1,5 @@
+Condition | Overlap Patients | Overlap % | Train Images | Test Images | Accuracy | Macro F1 | Balanced Accuracy | Mean Confidence | ECE | Brier
+---|---|---|---|---|---|---|---|---|---|---
+A | 0 | 0.0% | 1956 | 47 | 0.9149 | 0.9125 | 0.9190 | 0.9571 | 0.1042 | 0.1837
+B | 23 | 50.0% | 1956 | 47 | 0.8723 | 0.8717 | 0.8773 | 0.9384 | 0.0796 | 0.1682
+C | 46 | 100.0% | 1956 | 47 | 0.9149 | 0.9110 | 0.9167 | 0.9644 | 0.0858 | 0.1637

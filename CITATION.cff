@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: "[PLACEHOLDER_LAST_NAME]"
+    given-names: "[PLACEHOLDER_FIRST_NAME]"
+    orcid: "https://orcid.org/[PLACEHOLDER_ORCID]"
+title: "When Leakage Looks Reliable: Effects of Patient-Level Overlap on Performance, Confidence, and Calibration in Brain Tumor MRI Classification"
+version: 1.0.0
+date-released: "2026-08-09"
+url: "https://github.com/[PLACEHOLDER_USERNAME]/brain_tumor_patient_overlap"
