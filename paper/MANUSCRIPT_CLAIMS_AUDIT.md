@@ -12,7 +12,7 @@
 | S1 | Patient-level overlap was associated with increased accuracy in all five outer folds (A→C). | **High** | 5/5 folds, paired t(4)=3.45, p=0.034, Cohen's d=1.42 |
 | S2 | Patient-level overlap was associated with increased Macro F1 in all five outer folds. | **High** | 5/5 folds, paired t(4)=2.94, p=0.040, Cohen's d=1.34 |
 | S3 | Patient-level overlap was associated with increased Balanced Accuracy in all five outer folds. | **High** | 5/5 folds, paired t(4)=3.44, p=0.034 |
-| S4 | ECE decreased (improved) in all five outer folds under 100% overlap relative to 0% overlap. | **Very High** | 5/5 folds, paired t(4)=10.1, p=0.001, Cohen's d=−3.52 |
+| S4 | ECE decreased (improved) in all five outer folds under 100% overlap relative to 0% overlap. | **Very High** | 5/5 folds, paired t(4)=10.1, p=0.0014, Cohen's d=−3.52 |
 | S5 | Brier score decreased in all five outer folds under 100% overlap. | **Very High** | 5/5 folds, paired t(4)=4.26, p=0.013, Cohen's d=−1.90 |
 | S6 | HCER≥0.90 decreased in all five outer folds under 100% overlap. | **High** | 5/5 folds, paired t(4)=4.23, p=0.014, Cohen's d=−1.89 |
 | S7 | Mean predictive confidence increased in four of five outer folds under 100% overlap. | **Moderate-High** | 4/5 folds, paired t(4)=3.38, p=0.036 |
@@ -61,10 +61,10 @@
 
 | Inconsistency | Values | Source files | Recommendation |
 |--------------|--------|------------|---------------|
-| ECE pooled vs fold-weighted | Primary (unweighted mean of 5 per-fold ECEs): A=0.1047, B=0.0767, C=0.0561, A→C=-0.0486. Pooled CSV is supplementary. | `tables/stage3/fold_condition_calibration.csv` | **RESOLVED.** See results/stage3/ECE_FORENSIC_AUDIT.md. Primary manuscript convention is the unweighted mean of five per-fold ECE values. Pooled values are supplementary only. |
+| ECE pooled vs per-fold | Primary (unweighted mean of 5 per-fold ECEs): A=0.1047, B=0.0767, C=0.0561, A→C=-0.0486. Pooled CSV is supplementary. | `tables/stage3/fold_condition_calibration.csv` | **RESOLVED.** See results/stage3/ECE_FORENSIC_AUDIT.md. Primary manuscript convention is the unweighted mean of five per-fold ECE values. Pooled values are supplementary only. |
 | Prediction count | Previous reports: 700; verified count: 699 | `patient_overlap_prediction_analysis.csv` | **Use 699 throughout.** |
-| HCER90 pooled | Pooled CSV: A=0.060; fold-weighted: A=0.063 | Same as ECE issue | Minor; same resolution as ECE. |
-| Macro F1 pooling | pooled_performance.csv vs fold-weighted: difference <0.001 | Minor, same cause | Can report either; state method. |
+| HCER90 pooled | Pooled CSV: A=0.060; image-weighted mean of folds: A=0.063 | Same as ECE issue | Minor; same resolution as ECE. |
+| Macro F1 pooling | pooled_performance.csv vs image-weighted mean of folds: difference <0.001 | Minor, same cause | Can report either; state method. |
 
 ---
 

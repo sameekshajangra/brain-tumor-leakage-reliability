@@ -496,7 +496,7 @@ See Section 7 for complete tables. Summary:
 
 Across all five patient-disjoint outer folds, increasing the proportion of test-fold patients represented in training was associated with systematic changes in both classification performance and apparent reliability. In the primary comparison (Condition A, 0% overlap vs Condition C, 100% of eligible patients overlapping), accuracy increased in all five folds (fold-level differences: +4.4%, +10.9%, +6.3%, +2.1%, +2.1%; mean: +5.2%; paired t(4) p=0.034). Macro F1 and balanced accuracy showed identical directional patterns (5/5 folds). Mean predictive confidence increased in four of five folds (mean: +3.8%), with Fold 1 showing a negligible decrease (−0.1%).
 
-Most notably, both conventional calibration error metrics changed in a direction contrary to the pre-registered hypothesis. Expected Calibration Error (ECE) decreased in 5/5 folds (mean: −0.049; paired t(4) p=0.001), and Brier score decreased in 5/5 folds (mean: −0.097; paired t(4) p=0.013). This pattern indicates that patient-level overlap is associated not only with inflated performance metrics but with *apparently improved* calibration — the model's confidence more closely matched its accuracy on the leaked test cases. High-confidence error rates (HCER≥0.90) also decreased in 5/5 folds (mean: −0.039). A dose-response pattern was observed across the three overlap levels (0%, ~50%, 100%), with the A→B step driving stronger performance effects and the B→C step continuing to show calibration improvements.
+Most notably, both conventional calibration error metrics changed in a direction contrary to the pre-registered hypothesis. Expected Calibration Error (ECE) decreased in 5/5 folds (mean: −0.0486; paired t(4) p=0.0014), and Brier score decreased in 5/5 folds (mean: −0.097; paired t(4) p=0.013). This pattern indicates that patient-level overlap is associated not only with inflated performance metrics but with *apparently improved* calibration — the model's confidence more closely matched its accuracy on the leaked test cases. High-confidence error rates (HCER≥0.90) also decreased in 5/5 folds (mean: −0.039). A dose-response pattern was observed across the three overlap levels (0%, ~50%, 100%), with the A→B step driving stronger performance effects and the B→C step continuing to show calibration improvements.
 
 ---
 
@@ -538,7 +538,7 @@ Training on multiple images from the same patient may allow the model to learn p
 | L6 | Mechanism unproven | Memorization vs. familiarity vs. domain shift | No | "The experiment demonstrates association between overlap and reliability distortion; the specific causal mechanism is not established." |
 | L7 | No external validation | Single institution/dataset | Yes — limits generalizability | "No external dataset validation was performed." |
 | L8 | 2D MRI slices | Multiple slices from the same patient may differ from volumetric overlap | Partial | "Images are 2D slices; the overlap mechanism may differ from volumetric datasets." |
-| L9 | ECE pooling discrepancy | Fold-weighted vs unweighted ECE differ (~0.03) | Partial — requires consistent reporting | "ECE values depend on whether fold-level or pooled computation is used; methods should specify explicitly." |
+| L9 | ECE pooling effects | ECE is sensitive to whether bins are formed per-fold or pooled | Partial — requires consistent reporting | "ECE is computed per-fold as the primary metric, with pooled ECE provided only as a supplement." |
 
 ---
 
@@ -549,7 +549,7 @@ Training on multiple images from the same patient may allow the model to learn p
 | 1 | Patient overlap increases apparent performance | **SUPPORTED** | 5/5 folds, paired t p=0.034 | "Patient overlap was associated with increased accuracy in all five folds." | "Patient overlap causes higher accuracy." |
 | 2 | Patient overlap increases predictive confidence | **SUPPORTED** | 4/5 folds | "Patient overlap was associated with higher mean confidence in 4/5 folds." | "Patient overlap always increases confidence." |
 | 3 | Patient overlap changes apparent calibration | **SUPPORTED** | 5/5 folds, both ECE and Brier | "Patient overlap was associated with changes in ECE and Brier score." | "Overlap improves calibration." |
-| 4 | Patient overlap lowers ECE | **SUPPORTED** | 5/5 folds, p=0.001 | "ECE decreased in all five folds under 100% overlap." | "Leakage improves calibration." |
+| 4 | Patient overlap lowers ECE | **SUPPORTED** | 5/5 folds, p=0.0014 | "ECE decreased in all five folds under 100% overlap." | "Leakage improves calibration." |
 | 5 | Patient overlap lowers Brier score | **SUPPORTED** | 5/5 folds, p=0.013 | "Brier score decreased in all five folds." | "Overlap produces better-calibrated models." |
 | 6 | Patient overlap reduces HCER90 | **SUPPORTED** | 5/5 folds, p=0.014 | "High-confidence error rates decreased with overlap in all five folds." | "Overlap eliminates dangerous errors." |
 | 7 | Patient overlap causes memorization | **NOT SUPPORTED** | Not directly testable | "May reflect increased familiarity with patient-specific features." | "The model memorized patient anatomy." |
@@ -686,7 +686,7 @@ To quantify the effect of controlled patient-level overlap on accuracy, predicti
 - Accuracy: A=0.8927, B=0.9356, C=0.9442 (5/5 folds increased A→C; paired t p=0.034)
 - Macro F1: A=0.894, B=0.937, C=0.943 (5/5 folds increased)
 - Mean confidence: A=0.9234, B=0.9406, C=0.9614 (4/5 folds increased)
-- ECE: A=0.105, B=0.077, C=0.056 (5/5 folds decreased A→C; paired t p=0.0014). Expected Calibration Error (ECE) was computed separately for each outer fold using 15 equal-width bins spanning [0,1]. The mean of the five fold-level ECE values was reported as the primary summary statistic and used for fold-level paired comparisons.
+- ECE: A=0.1047, B=0.0767, C=0.0561 (5/5 folds decreased A→C; paired t p=0.0014). Expected Calibration Error (ECE) was computed separately for each outer fold using 15 equal-width bins spanning [0,1]. The mean of the five fold-level ECE values was reported as the primary summary statistic and used for fold-level paired comparisons.
 - Brier: A=0.182, B=0.118, C=0.084 (5/5 folds decreased)
 - HCER90: A=0.063, B=0.036, C=0.024 (5/5 folds decreased)
 
