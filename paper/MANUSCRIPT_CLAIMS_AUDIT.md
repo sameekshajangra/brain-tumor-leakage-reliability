@@ -61,7 +61,7 @@
 
 | Inconsistency | Values | Source files | Recommendation |
 |--------------|--------|------------|---------------|
-| ECE pooled vs fold-weighted | Pooled CSV: A=0.072, B=0.053, C=0.035; Fold-weighted: A=0.105, B=0.077, C=0.056 | `tables/stage3/pooled_calibration.csv` vs recomputed from `complete_fold_condition_results.csv` | **Action required before writing.** Decide on one method; fold-weighted is more conservative and likely more appropriate for unequal fold sizes. State method explicitly. |
+| ECE pooled vs fold-weighted | Primary (unweighted mean of 5 per-fold ECEs): A=0.1047, B=0.0767, C=0.0561, A→C=-0.0486. Pooled CSV is supplementary. | `tables/stage3/fold_condition_calibration.csv` | **RESOLVED.** See results/stage3/ECE_FORENSIC_AUDIT.md. Primary manuscript convention is the unweighted mean of five per-fold ECE values. Pooled values are supplementary only. |
 | Prediction count | Previous reports: 700; verified count: 699 | `patient_overlap_prediction_analysis.csv` | **Use 699 throughout.** |
 | HCER90 pooled | Pooled CSV: A=0.060; fold-weighted: A=0.063 | Same as ECE issue | Minor; same resolution as ECE. |
 | Macro F1 pooling | pooled_performance.csv vs fold-weighted: difference <0.001 | Minor, same cause | Can report either; state method. |
@@ -89,7 +89,7 @@ The manuscript must use consistent terminology throughout:
 
 | # | Issue | Priority |
 |---|-------|---------|
-| U1 | ECE pooling method must be decided before abstract/results | **HIGH — must resolve before writing** |
+| U1 | ECE pooling method must be decided before abstract/results | **RESOLVED — see results/stage3/ECE_FORENSIC_AUDIT.md. Primary manuscript convention is the unweighted mean of five per-fold ECE values (A=0.1047, B=0.0767, C=0.0561, A→C=-0.0486). Pooled values are supplementary only.** |
 | U2 | Dataset citation (Cheng et al.) — DOI/URL not stored in repository | **HIGH — needed for submission** |
 | U3 | Training time per run not logged in summary tables | Low — not critical for manuscript |
 | U4 | PID encoding details not documented beyond usage | Low — reviewers unlikely to ask |

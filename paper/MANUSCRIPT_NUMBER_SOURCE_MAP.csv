@@ -96,9 +96,9 @@ Confidence - pooled,Conf on correct C,0.9724,proportion,tables/stage3/complete_f
 Confidence - pooled,HCER90 A,0.0626,proportion,tables/stage3/complete_fold_condition_results.csv,image-weighted mean,Discrepancy vs pooled_calibration.csv (~0.002)
 Confidence - pooled,HCER90 B,0.0363,proportion,tables/stage3/complete_fold_condition_results.csv,image-weighted mean,
 Confidence - pooled,HCER90 C,0.0242,proportion,tables/stage3/complete_fold_condition_results.csv,image-weighted mean,
-Calibration - pooled,ECE A (fold-weighted),0.1050,proportion,tables/stage3/complete_fold_condition_results.csv,image-weighted mean,"DISCREPANCY: pooled_calibration.csv reports 0.0719"
-Calibration - pooled,ECE B (fold-weighted),0.0769,proportion,tables/stage3/complete_fold_condition_results.csv,image-weighted mean,"DISCREPANCY: pooled_calibration.csv reports 0.0529"
-Calibration - pooled,ECE C (fold-weighted),0.0563,proportion,tables/stage3/complete_fold_condition_results.csv,image-weighted mean,"DISCREPANCY: pooled_calibration.csv reports 0.0346"
+Calibration - pooled,ECE A (unweighted mean of 5 per-fold ECEs),0.1047,proportion,tables/stage3/fold_condition_calibration.csv,unweighted mean of 5 per-fold ECEs,"Unweighted mean of 5 per-fold ECEs; resolved in ECE_FORENSIC_AUDIT.md. Pooled ECE (A=0.0719/B=0.0529/C=0.0346) from pooled_calibration.csv is supplementary only."
+Calibration - pooled,ECE B (unweighted mean of 5 per-fold ECEs),0.0767,proportion,tables/stage3/fold_condition_calibration.csv,unweighted mean of 5 per-fold ECEs,"Unweighted mean of 5 per-fold ECEs; resolved in ECE_FORENSIC_AUDIT.md. Pooled ECE (A=0.0719/B=0.0529/C=0.0346) from pooled_calibration.csv is supplementary only."
+Calibration - pooled,ECE C (unweighted mean of 5 per-fold ECEs),0.0561,proportion,tables/stage3/fold_condition_calibration.csv,unweighted mean of 5 per-fold ECEs,"Unweighted mean of 5 per-fold ECEs; resolved in ECE_FORENSIC_AUDIT.md. Pooled ECE (A=0.0719/B=0.0529/C=0.0346) from pooled_calibration.csv is supplementary only."
 Calibration - pooled,Brier A,0.1815,proportion,tables/stage3/complete_fold_condition_results.csv,image-weighted mean,
 Calibration - pooled,Brier B,0.1177,proportion,tables/stage3/complete_fold_condition_results.csv,image-weighted mean,
 Calibration - pooled,Brier C,0.0843,proportion,tables/stage3/complete_fold_condition_results.csv,image-weighted mean,

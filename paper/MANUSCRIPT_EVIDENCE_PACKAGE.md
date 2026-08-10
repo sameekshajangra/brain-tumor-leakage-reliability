@@ -384,10 +384,10 @@ All 15 runs used device `mps`. All 15 runs triggered early stopping before 50 ep
 
 | Metric | Condition A | Condition B | Condition C |
 |--------|------------|------------|------------|
-| ECE | **0.1050** | **0.0769** | **0.0563** |
+| ECE | **0.1047** | **0.0767** | **0.0561** |
 | Brier score | **0.1815** | **0.1177** | **0.0843** |
 
-> ⚠️ **DISCREPANCY:** `pooled_calibration.csv` reports ECE for A = 0.0719, B = 0.0529, C = 0.0346. Image-weighted fold recalculation gives A = 0.1050, B = 0.0769, C = 0.0563. **This is a significant discrepancy (~0.03). Investigate before reporting in manuscript. Likely caused by different ECE bin assignment at fold vs pooled level.** Both values show the same directional trend (A > B > C), but the magnitude differs. **Use fold-level ECE values from `complete_fold_condition_results.csv` for per-fold reporting; use only one pooling strategy for the abstract/summary.**
+> ECE discrepancy resolved — see ECE_FORENSIC_AUDIT.md. Primary ECE values are the unweighted mean of the five per-fold ECE values. Pooled ECE is supplementary only: A=0.0719, B=0.0529, C=0.0346.
 
 **ECE definition (from code):** 15 equal-width bins in [0,1]. Within each bin: `|mean_accuracy − mean_confidence|`, weighted by fraction of samples in bin. Computed per fold per condition in `src/23_stage3_calibration.py`.
 
@@ -397,7 +397,7 @@ All 15 runs used device `mps`. All 15 runs triggered early stopping before 50 ep
 
 | Metric | A→B | B→C | A→C |
 |--------|-----|-----|-----|
-| ECE | −0.0280 | −0.0206 | −0.0486 |
+| ECE (per-fold ECE, unweighted mean) | −0.0280 | −0.0206 | −0.0486 |
 | Brier | −0.0640 | −0.0331 | −0.0970 |
 
 **Source:** `tables/stage3/statistical_comparison_results.csv`
@@ -686,7 +686,7 @@ To quantify the effect of controlled patient-level overlap on accuracy, predicti
 - Accuracy: A=0.8927, B=0.9356, C=0.9442 (5/5 folds increased A→C; paired t p=0.034)
 - Macro F1: A=0.894, B=0.937, C=0.943 (5/5 folds increased)
 - Mean confidence: A=0.9234, B=0.9406, C=0.9614 (4/5 folds increased)
-- ECE: A=0.105, B=0.077, C=0.056 (5/5 folds decreased A→C; paired t p=0.001) [note: values from fold-weighted pooling]
+- ECE: A=0.105, B=0.077, C=0.056 (5/5 folds decreased A→C; paired t p=0.0014). Expected Calibration Error (ECE) was computed separately for each outer fold using 15 equal-width bins spanning [0,1]. The mean of the five fold-level ECE values was reported as the primary summary statistic and used for fold-level paired comparisons.
 - Brier: A=0.182, B=0.118, C=0.084 (5/5 folds decreased)
 - HCER90: A=0.063, B=0.036, C=0.024 (5/5 folds decreased)
 
@@ -768,8 +768,8 @@ Patient-level overlap was associated with consistent increases in apparent class
 3. **No predictions changed.** ✓
 4. **No existing scientific result overwritten.** ✓
 5. **699 prediction rows confirmed** (not 700). ✓
-6. **Pooled metrics verified against raw data** — ECE discrepancy between pooled_calibration.csv and fold-weighted calculation flagged. ✓
+6. **Pooled metrics verified against raw data** — ECE discrepancy resolved — see ECE_FORENSIC_AUDIT.md. Primary ECE values are the unweighted mean of the five per-fold ECE values. ✓
 7. **A→C directional counts verified** against paired_fold_differences.csv. ✓
 8. **Training composition limitation documented** (Section 7, L4). ✓
 9. **All numerical claims have source files.** See MANUSCRIPT_NUMBER_SOURCE_MAP.csv. ✓
-10. **Discrepancies flagged:** Two found — (a) ECE pooled vs fold-weighted (~0.03), (b) minor Macro F1 pooling difference (<0.001). Neither affects conclusions. ✓
+10. **Historical discrepancies reviewed:** (a) ECE pooling discrepancy — resolved; see ECE_FORENSIC_AUDIT.md. Primary ECE values use the unweighted mean of five per-fold ECEs. (b) minor Macro F1 pooling difference (<0.001). Neither affects the conclusions. ✓
