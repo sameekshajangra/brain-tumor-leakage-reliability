@@ -23,7 +23,7 @@ To reproduce this research, you must acquire the dataset independently:
 
 ## 5. Project Structure
 - `src/`: Python scripts for data processing, split generation, training, and evaluation.
-- `configs/`: Placeholder for external configuration schemas if added.
+- `configs/`: Stage 1 and Stage 2 configuration files.
 - `tables/`: Contains all generated split manifests and evaluation CSVs.
 - `figures/`: Generated dose-response curves and reliability diagrams.
 - `results/`: Root directory for output reports (checkpoints are `.gitignore`d).
@@ -84,7 +84,7 @@ Paired comparisons across the five folds; accuracy rose and ECE fell from A to C
 *Per-fold and pooled accuracy under zero, partial, and full patient-level overlap.*
 
 ![ECE vs Overlap](figures/stage3/ece_vs_overlap.png)
-*Expected Calibration Error decreases monotonically with overlap across all five folds.*
+*Expected Calibration Error under zero, partial and full patient-level overlap. ECE was lower under full overlap than under no overlap in all five folds.*
 
 ![Reliability Diagram A / B / C](figures/stage3/reliability_A_B_C_final.png)
 *Pooled reliability (calibration) diagrams for conditions A, B, and C against the perfect-calibration diagonal.*

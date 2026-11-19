@@ -26,3 +26,7 @@ env/
 # Large temporary/generated files
 *.tmp
 *.log
+
+# Internal manuscript notes
+paper/
+results/github_preparation_report.md
